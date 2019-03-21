@@ -59,6 +59,7 @@ DEBUG = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'pyuploadcare.dj',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
