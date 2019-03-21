@@ -11,16 +11,17 @@
   <meta name="author" content="">
 
   <title>Awards</title>
- 
+
   <!-- Bootstrap core CSS -->
   <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %} " rel="stylesheet">
- 
+
   <!-- Custom fonts for this template -->
   <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %} " rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
     rel="stylesheet">
- 
+
   <!-- Custom styles for this template -->
   <link href="{% static 'css/grayscale.min.css' %}" rel="stylesheet">
 
@@ -28,32 +29,42 @@
 
 <body id="page-top">
 
-  <!-- Navigation --> 
+  <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">Awards</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
+        {% if user.is_authenticated %}
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#proj">Projects</a>
+            <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#signup">Contact</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/logout">Logout</a>
+          </li>
         </ul>
+        {% else %}
+        <li>
+          <a class="nav-link js-scroll-trigger" href="/accounts/login">Login</a>
+        </li>
+        {% endif %}
       </div>
     </div>
   </nav>
 
-  <!-- Header --> 
+  <!-- Header -->
   <header class="masthead">
     <div class="container d-flex h-100 align-items-center">
       <div class="mx-auto text-center">
@@ -65,21 +76,23 @@
     </div>
   </header>
 
-  <!-- About Section --> 
+  <!-- About Section -->
   <section id="about" class="about-section text-center">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
           <h2 class="text-white mb-4">Built by Denzel Ouma</h2>
-          <p class="text-white-50">Denzel Washington has always been my role model, being named after him was one of my parents greatest things that they could ever give to me. <br>
-          <em>"My mother used to tell me man gives the award, God gives the reward. I don't need another plaque."</em> </p>
+          <p class="text-white-50">Denzel Washington has always been my role model, being named after him was one of my
+            parents greatest things that they could ever give to me. <br>
+            <em>"My mother used to tell me man gives the award, God gives the reward. I don't need another plaque."</em>
+          </p>
         </div>
       </div>
       <img src="{% static 'img/denzel3.jpg' %}" class="img-fluid" alt="" height="100%" width="80%">
     </div>
   </section>
 
-  <!-- Projects Section --> 
+  <!-- Projects Section -->
   <section id="projects" class="projects-section bg-light">
     <div class="container">
 
@@ -97,7 +110,7 @@
         </div>
       </div>
 
-      <!-- Project One Row --> 
+      <!-- Project One Row -->
       <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
         <div class="col-lg-6">
           <img class="img-fluid" src="{% static 'img/awards5.jpg' %}" alt="" height="100%" width="100%">
@@ -118,7 +131,7 @@
         </div>
       </div>
 
-      <!-- Project Two Row --> 
+      <!-- Project Two Row -->
       <div class="row justify-content-center no-gutters">
         <div class="col-lg-6">
           <img class="img-fluid" src="{% static 'img/betawards3.jpeg' %}" alt="" height="100%" width="100%">
@@ -142,7 +155,7 @@
     </div>
   </section>
 
-  <section id="proj"> 
+  <section id="proj">
     <div class="row">
       <div class="col-md-5"></div>
       <div class="col-md-2">
@@ -153,7 +166,7 @@
 
   </section>
 
-  <!-- Signup Section --> 
+  <!-- Signup Section -->
   <section id="signup" class="signup-section">
     <div class="container">
       <div class="row">
@@ -163,7 +176,8 @@
           <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
 
           <form class="form-inline d-flex">
-            <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Enter email address...">
+            <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail"
+              placeholder="Enter email address...">
             <button type="submit" class="btn btn-primary mx-auto">Subscribe</button>
           </form>
 
@@ -172,7 +186,7 @@
     </div>
   </section>
 
-  <!-- Contact Section --> 
+  <!-- Contact Section -->
   <section class="contact-section bg-black">
     <div class="container">
 
@@ -229,7 +243,7 @@
     </div>
   </section>
 
-  <!-- Footer --> 
+  <!-- Footer -->
   <footer class="bg-black small text-center text-white-50">
     <div class="container">
       Copyright &copy; Your Website 2019
