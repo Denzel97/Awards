@@ -6,9 +6,10 @@
 
  Awards is a webiste where software programmers can post there projects for review and to be voted.
 
-Behavior Driven Development
+## Behavior Driven Development
+
 | Behavior  | Input |   Output |
-| :-------------: | :-------------: |   :-------------: |
+| :------------- | :-------------: |   -------------: |
 |   User athentication  |  Sign-up credentials   | Navigate to login page    |
 |  User athentication    | Login credentials    |  Navigate to home page   |
 |  Post project    | Project details    |  Project posted on home page   |
