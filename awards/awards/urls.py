@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name = 'home'),
     url(r'^accounts/login/', views.login_view),
+    url(r'^profile/' , views.profile, name='profile'),
     url(r'^accounts/register/', views.register_view),
     url(r'^logout/', views.logout,{'next_page':'/'}, name='logout'),
 ]

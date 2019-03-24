@@ -1,0 +1,28 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    {% block content %}
+    {% for user in new %}
+    <img src="{{user.profile.photo}}" >
+   <h1>{{user.title}}</h1>
+   <p class="content">{{user.content}}</p>
+   <p><em><strong>{{user.date_posted}}</strong></em></p>
+   <p><strong>{{user.author}}</strong></p>
+   {%endfor%}
+   {% endblock %}
+</body>
+<style>
+.content{
+    font-size: 150%;
+
+}
+
+</style>
+</html>

@@ -3,7 +3,7 @@ from django.conf import settings
 from django.contrib.auth import authenticate, get_user_model, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import logout
-
+from .models import *
 
 from .forms import UserLoginForm, UserRegisterForm
 
@@ -47,4 +47,10 @@ def register_view(request):
 @login_required
 def home(request):
     return render(request, "home.html", {})
+@login_required
 
+def profile(request):
+    current_user=request.user
+    new = Post.objects.all()
+    print(new)
+    return render(request, "profile.html",locals())  
