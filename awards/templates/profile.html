@@ -1,28 +1,303 @@
-
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Profile</title>
 </head>
+
 <body>
-    {% include 'navbar.html' %}
+
+
+    {% load staticfiles %}
     {% block content %}
     {% for user in new %}
-    <img src="{{user.profile.photo}}" >
-   <h1>{{user.title}}</h1>
-   <p class="content">{{user.content}}</p>
-   <p><em><strong>{{user.date_posted}}</strong></em></p>
-   <p><strong>{{user.author}}</strong></p>
-   {%endfor%}
-   {% endblock %}
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Awards</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %} " rel="stylesheet">
+
+        <!-- Custom fonts for this template -->
+        <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %} " rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="{% static 'css/grayscale.min.css' %}" rel="stylesheet">
+
+    </head>
+
+    <body id="page-top">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">Awards</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                    data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    {% if user.is_authenticated %}
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="/logout">Logout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="/$">Home</a>
+                        </li>
+                    </ul>
+                    {% else %}
+                    <li>
+                        <a class="nav-link js-scroll-trigger" href="/accounts/login">Login</a>
+                    </li>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+
+
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section bg-light">
+            <div class="container">
+
+
+
+                <!-- Project One Row -->
+                <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+                    <div class="col-lg-6">
+                        <img class="img-fluid" src="{% static 'img/awards5.jpg' %}" alt="" height="100%" width="100%">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white">Oscars Awards</h4>
+                                    <p class="mb-0 text-white-50">The Academy Awards, also known as the Oscars, are a
+                                        set of awards for
+                                        artistic and technical merit in the film industry. Given annually by the Academy
+                                        of Motion Picture
+                                        Arts and Sciences, the awards are an international recognition of excellence in
+                                        cinematic
+                                        achievements as assessed by the Academy's voting membership.</p>
+                                    <hr class="d-none d-lg-block mb-0 ml-0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Two Row -->
+                <div class="row justify-content-center no-gutters">
+                    <div class="col-lg-6">
+                        <img class="img-fluid" src="{% static 'img/betawards3.jpeg' %}" alt="" height="100%"
+                            width="100%">
+                    </div>
+                    <div class="col-lg-6 order-lg-first">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-right">
+                                    <h4 class="text-white">BET Awards</h4>
+                                    <p class="mb-0 text-white-50">The BET Awards were established in 2001 by the Black
+                                        Entertainment
+                                        Television network to celebrate African Americans and other American minorities
+                                        in music, acting,
+                                        sports, and other fields of entertainment over the past year. The awards are
+                                        presented annually, and
+                                        are broadcast live on BET.</p>
+                                    <hr class="d-none d-lg-block mb-0 mr-0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row justify-content-center no-gutters">
+                    <div class="col-lg-6">
+                        <img class="img-fluid" src="{% static '{{user.profile.photo}}' %}" alt="" height="100%"
+                            width="100%">
+                    </div>
+                    <div class="col-lg-6 order-lg-first">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-right">
+                                    <h4 class="text-white">{{user.title}}</h4>
+                                    <p class="mb-0 text-white-50">{{user.content}}</p>
+                                    <p><em><strong>{{user.date_posted}}</strong></em></p>
+                                    <p><strong>{{user.author}}</strong></p>
+                                    <hr class="d-none d-lg-block mb-0 mr-0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="proj">
+            <div class="row">
+                <div class="col-md-5"></div>
+                <div class="col-md-2">
+                    <button class="button"><span>Post Projects </span></button>
+                </div>
+                <div class="col-md-5"></div>
+            </div>
+
+        </section>
+
+        {%endfor%}
+
+
+        <!-- Contact Section -->
+        <section class="contact-section bg-black">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Address</h4>
+                                <hr class="my-4">
+                                <div class="small text-black-50">Ngong Lane Plaza, Moringa School</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-envelope text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Email</h4>
+                                <hr class="my-4">
+                                <div class="small text-black-50">
+                                    <a href="#">denzelwash97@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Phone</h4>
+                                <hr class="my-4">
+                                <div class="small text-black-50">+(254) 740 765 460</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social d-flex justify-content-center">
+                    <a href="#" class="mx-2">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="mx-2">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="mx-2">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-black small text-center text-white-50">
+            <div class="container">
+                Copyright &copy; Your Website 2019
+            </div>
+        </footer>
+
+        <!-- Bootstrap core JavaScript -->
+        <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+        <!-- Plugin JavaScript -->
+        <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+        <!-- Custom scripts for this template -->
+        <script src="{% static 'js/grayscale.min.js' %}"></script>
+
+
+        <style>
+            .button {
+                border-radius: 4px;
+                background-color: #201f1e;
+                border: none;
+                color: #FFFFFF;
+                text-align: center;
+                font-size: 18px;
+                padding: 10px;
+                width: 200px;
+                transition: all 0.5s;
+                cursor: pointer;
+                margin: 5%;
+            }
+
+            .button span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+            }
+
+            .button span:after {
+                content: '\00bb';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+            }
+
+            .button:hover span {
+                padding-right: 25px;
+            }
+
+            .button:hover span:after {
+                opacity: 1;
+                right: 0;
+            }
+        </style>
+
+    </body>
+
+    </html>
+
+
+
+
+
+    {% endblock %}
 </body>
 <style>
-.content{
-    font-size: 150%;
+    .content {
+        font-size: 150%;
 
-}
-
+    }
 </style>
+
 </html>
